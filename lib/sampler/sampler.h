@@ -27,16 +27,40 @@ int getNextSample(wavetype type) {
   return WaveFormTable[type][sampleCtr];
 }
 
-int getMappedNextSample(int t) {
-  return 1;
-}
-
-int getMappedNextSample(wavetype type) {
+int getMappedNextSampleByType(wavetype type) {
   int val = getNextSample(type);
   if (type == sine) {
       val = map(val,0x40,0xC0,0,255);
   }
   return val;
 }
+
+int getMappedNextSampleByIdx(int t) {
+  return getMappedNextSampleByType(static_cast<wavetype>(t));
+}
+
+
+
+
+// class Sampler {
+
+//   private:
+//     Sampler() {};
+//     void isrSampler();
+
+//     volatile int sampleCtr = 0;
+//     hw_timer_t * timer = NULL;
+//     portMUX_TYPE timerMux = portMUX_INITIALIZER_UNLOCKED;
+//     //int freq = 440; // 440 Hz = A
+//     int freq = 1000; // 1kHz
+
+//   public:
+//     static Sampler& getInstance(){
+//         static Sampler theInstance;
+//         return theInstance;
+//     };
+//     void begin();
+//     int getMappedNextSample(wavetype type);
+// };
 
 #endif // _SAMPLER_H
