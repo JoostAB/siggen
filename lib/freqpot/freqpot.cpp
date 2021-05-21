@@ -20,8 +20,10 @@ void FreqPot::scanPot() {
     // ...wrap around to the beginning:
     freqPotSampleIdx = 0;
   }
+
+  freqPotAvg = ((9 * freqPotAvg) + (freqPotTotal / FREQPOT_SAMPLE_CNT) / 10);
 }
 
 int FreqPot::getAvg() {
-  return freqPotTotal / FREQPOT_SAMPLE_CNT;
+  return freqPotAvg;
 }

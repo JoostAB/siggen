@@ -13,10 +13,6 @@ void setup() {
   samplerInit();
 }
 
-// void plotValue(int val, int max) {
-//     sendSignalSample(val, DAC_CHANNEL_1);
-// }
-
 void loop() {
 
     // freqPot = ((9*freqPot) + getAvgFreqPotValue()) / 10;

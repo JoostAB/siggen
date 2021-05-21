@@ -19,6 +19,7 @@ class FreqPot {
     int freqPotSamples[FREQPOT_SAMPLE_CNT];
     int freqPotSampleIdx = 0;
     int freqPotTotal = 0;
+    int freqPotAvg = 0;
     
 };
 
