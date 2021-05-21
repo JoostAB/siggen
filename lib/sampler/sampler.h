@@ -27,16 +27,16 @@ int getNextSample(wavetype type) {
   return WaveFormTable[type][sampleCtr];
 }
 
-int getMappedNextSample(int t) {
-  return 1;
-}
-
-int getMappedNextSample(wavetype type) {
+int getMappedNextSampleByType(wavetype type) {
   int val = getNextSample(type);
   if (type == sine) {
       val = map(val,0x40,0xC0,0,255);
   }
   return val;
+}
+
+int getMappedNextSampleByIdx(int t) {
+  return getMappedNextSampleByType(static_cast<wavetype>(t));
 }
 
 #endif // _SAMPLER_H
