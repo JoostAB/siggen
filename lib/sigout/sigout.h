@@ -9,8 +9,8 @@ void sigOutInit() {
   dac_output_enable(DAC_CHANNEL_2);
 }
 
-void sendSignalSample(int val, dac_channel_t channel) {
-  if (val < 256) dac_output_voltage(channel, val);
+void sendSignalSample(int8_t val, dac_channel_t channel) {
+  dac_output_voltage(channel, val);
 }
 
 #endif // _SIGOUT_H
